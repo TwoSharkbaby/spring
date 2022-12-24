@@ -1,0 +1,31 @@
+package org.zerock.domain;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+public class Criteria {
+
+	private int pageNum;
+	private int amount;
+	
+	private String type; 
+	private String keyword;
+	
+	public Criteria() {
+		this(1, 50);
+	}
+
+	public Criteria(int pageNum, int amount) {
+		this.pageNum = pageNum;
+		this.amount = amount;
+	}
+	
+	public int getPageStart() {
+		return (pageNum-1)*amount;
+	}
+	
+}
